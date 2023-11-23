@@ -6,15 +6,18 @@ char pyramid[5][14] = {
         {' ', ' ', ' ', ' ', '0', ' ', '0'},
         {' ', ' ', ' ', '0', ' ', '0', ' ', '0'},
         {' ', ' ', '0', ' ', '0', ' ', '0', ' ', '0'},
-        {'0', ' ', '0', ' ', '0', ' ', '0', ' ', '0', ' ', '0'}
+        {' ', '0', ' ', '0', ' ', '0', ' ', '0', ' ', '0'}
 };
 
 void game();
 void drawPyramid();
+void saveMove(int, int, int, int);
+int checkWin();
 void setConsoleColor(int);
 void resetConsoleColor();
 
 int main() {
+    saveMove(5, 1, 2, 1);
     drawPyramid();
     game();
     return 0;
@@ -61,7 +64,16 @@ void game() {
         scanf("%d", &row);
         printf("\nBei welchen Strich möchtest du Starten und wie viele? ");
         scanf("%d %d", &colStart, &colCounter);
+
+        saveMove(row, colStart, colCounter, currentPlayer);
         
+        if (checkWin()) {
+            if (currentPlayer == 1) {
+                printf("\n%s hat gewonnen!\n", playerName1);
+            } else {
+                printf("\n%s hat gewonnen!\n", playerName2);
+            }
+        }
 
         currentPlayer = currentPlayer == 1 ? 2 : 1;
     }
@@ -92,6 +104,35 @@ void drawPyramid() {
         }
         printf("\n");
     }
+}
+
+void saveMove(int row, int colStart, int colCounter, int player) {
+    printf("\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 14; j++) {
+            if (i == row -1) {
+                for (int k = 0; k < 9; k++) {
+                    if (pyramid[i][k] == '0' && colCounter > 0 && k >= colStart) {
+                        pyramid[i][k] = player == 1 ? '2' : '1';
+                        colCounter--;
+                    }
+                }
+            }
+        }
+    }
+}
+
+int checkWin() {
+    int win = 1;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 14; j++) {
+            if (pyramid[i][j] == '0') {
+                win = 0;
+                break;
+            }
+        }
+    }
+    return win;
 }
 
 void setConsoleColor(int colorCode) {
