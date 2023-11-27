@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pyramiden_Spiel::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pyramiden_Spiel-Debug-531f94130aaaa598c632.json",
+					"jsonFile" : "target-Pyramiden_Spiel-Debug-f94603eb84da10b77048.json",
 					"name" : "Pyramiden_Spiel",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/phili/Pyramiden-Spiel/cmake-build-debug",
-		"source" : "C:/Users/phili/Pyramiden-Spiel"
+		"build" : "H:/Desktop/Pyramiden-Spiel-main/Pyramiden-Spiel/cmake-build-debug",
+		"source" : "H:/Desktop/Pyramiden-Spiel-main/Pyramiden-Spiel"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }
